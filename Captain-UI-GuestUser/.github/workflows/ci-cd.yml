@@ -3,7 +3,7 @@ name: CI/CD Pipeline for Docker Deployment
 on:
   push:
     branches:
-      - dev
+      - main
 
 env:
   IMAGE_NAME: ajuua/sampletest # Replace with your Docker Hub repository
