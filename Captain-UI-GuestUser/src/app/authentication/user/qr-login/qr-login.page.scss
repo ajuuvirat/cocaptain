@@ -1,0 +1,273 @@
+ 
+
+.my-sidemenu .content{
+
+    background-color: #CF0000;
+
+}
+
+.my-sidemenu .toolbar .toolbar-background {
+
+    background-color: #2D3238;
+
+}
+
+.my-sidemenu .toolbar .toolbar-title {
+
+    color: #FFFFFF;
+
+}
+
+.my-sidemenu  .list {
+
+    background-color: transparent;
+
+}
+
+.my-sidemenu  .list .item {
+
+    background-color: transparent;
+
+    color: #FFFFFF;
+
+}
+
+.my-sidemenu  .list .item .item-inner {
+
+    margin-left: 8px;
+
+}
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+             /* Coded with love by Mutiullah Samim */
+
+     body,
+
+     html {
+
+         margin: 0;
+
+         padding: 0;
+
+         height: 100%;
+
+         background: #60a3bc !important;
+
+     }
+
+     .user_card {
+
+         height: 500px;
+
+         width: 350px;
+
+         margin-top: auto;
+
+         margin-bottom: auto;
+
+
+         position: relative;
+
+         display: flex;
+
+         justify-content: center;
+
+         flex-direction: column;
+
+         padding: 10px;
+
+         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+         -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+         -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+         border-radius: 5px;
+
+ 
+
+     }
+
+     .brand_logo_container {
+
+         position: absolute;
+
+         height: 170px;
+
+         width: 170px;
+
+         top: -75px;
+
+         border-radius: 50%;
+
+         background: #60a3bc;
+
+         padding: 10px;
+
+         text-align: center;
+
+     }
+
+     .co-captain-logo{
+        margin-top: 50px;
+     }
+
+     .brand_logo {
+
+         height: 150px;
+
+         width: 150px;
+
+         border-radius: 50%;
+
+         border: 2px solid white;
+
+     }
+
+     .form_container {
+
+         margin-top: 50px;
+
+     }
+
+     .login_btn {
+
+         width: 100%;
+
+         background: #94004A !important;
+
+         color: white !important;
+
+     }
+
+     .login_btn:focus {
+
+         box-shadow: none !important;
+
+         outline: 0px !important;
+
+     }
+
+     .login_container {
+
+         padding: 0 2rem;
+
+     }
+
+     .input-group-text {
+
+         background: #c0392b !important;
+
+         color: white !important;
+
+         border: 0 !important;
+
+         border-radius: 0.25rem 0 0 0.25rem !important;
+
+         min-height: 37px;
+
+         min-width: 41px;
+
+     }
+
+     .input_user,
+
+     .input_pass:focus {
+
+         box-shadow: none !important;
+
+         outline: 0px !important;
+
+     }
+
+     .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+
+         background-color: #c0392b !important;
+
+       
+
+     }
+
+     .card-container {
+        display: flex;
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+      }
+
+      .top-img{
+        position: fixed;
+        right: 0px;
+        top: 0px;
+      }
+      
+
+      .login-card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80vh;
+      }
+      
+      ion-card {
+        width: 90%; /* Adjust the width as needed */
+        max-width: 400px; /* Optional: Set a maximum width */
+      }
+      
+      .restaurant{
+        font-size: 14px;
+        font-weight: 400;
+        color: #94004A;
+      }
+
+      .restaurant-name{
+        font-size: 16px;
+        font-weight: 600;
+        color: #222222;
+      }
+
+      .rectangle1{
+        position: fixed;
+        right: 55px;
+        top: 38px;
+      }
+
+      .rectangle2{
+        width: 337px;
+        height: 383px;
+        padding: 10px;
+        background-image: url('/assets/svg/rectangle2.svg');
+        background-repeat: no-repeat;
+        border-radius: 23px;
+        margin: 0;
+        position: fixed;
+        top: 117px;
+        right: 48px;
+      }
+
+      .rectangle3{
+        width: 337px;
+        height: 383px;
+        padding: 10px;
+        background-image: url('/assets/svg/rectangle3.svg');
+        background-repeat: no-repeat;
+        border-radius: 23px;
+        margin: 0;
+        position: fixed;
+        top: 558px;
+        right: -68px;
+      }
+
+      .error-mesg {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #f8d7da; /* Light red background */
+        color: #721c24; /* Dark red text color */
+        display: flex;
+        align-items: center;
+        gap: 8px; /* Space between icon and text */
+        border: 1px solid #f5c6cb; /* Border for better visibility */
+      }
+      .animated-background {
+        animation: fadeIn 0.8s ease-in-out, pulse 1.5s infinite;
+      }

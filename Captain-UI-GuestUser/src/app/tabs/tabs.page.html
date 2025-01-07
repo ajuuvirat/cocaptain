@@ -1,0 +1,36 @@
+<ion-tabs #tabs *ngIf="userStatus === 1" (ionTabsDidChange)="setCurrentTab($event)">
+  <ion-tab-bar>
+    <ion-tab-button 
+      tab="list"  *ngIf="subscriptionType != '2'"
+      [class.active]="activeTab === 'list'">
+      <img *ngIf="activeTab === 'list'" src="../../assets/svg/products-tab-active.svg" alt="Active Products">
+      <img *ngIf="activeTab !== 'list'" src="../../assets/svg/product-tab-deactive.svg" alt="Deactivated Products">
+      <ion-label>Products</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button 
+      tab="order-list" *ngIf="subscriptionType != '2'"
+      [class.active]="activeTab === 'order-list'">
+      <img *ngIf="activeTab === 'order-list'" src="../../assets/svg/order-active.svg" alt="Active Orders">
+      <img *ngIf="activeTab !== 'order-list'" src="../../assets/svg/orders-deactive.svg" alt="Deactivated Orders">
+      <ion-label>Orders</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button 
+      tab="needs-list" *ngIf="subscriptionType != '2'"
+      [class.active]="activeTab === 'needs-list'">
+      <img *ngIf="activeTab === 'needs-list'" src="../../assets/svg/service-active.svg" alt="Active Service">
+      <img *ngIf="activeTab !== 'needs-list'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+      <ion-label>Service</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button 
+    tab="sharing" *ngIf="subscriptionType != '2'"
+    [class.active]="activeTab === 'sharing'">
+    <img *ngIf="activeTab === 'sharing'" src="../../assets/svg/service-active.svg" alt="Active Service">
+    <img *ngIf="activeTab !== 'sharing'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+    <ion-label>Sharing</ion-label>
+  </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

@@ -1,0 +1,85 @@
+/* Styles specific to the OTP component */
+ion-button {
+    margin-top: 20px;
+  }
+  
+  ion-input {
+    font-size: 18px;
+  }
+  
+  ion-toast {
+    margin-top: 20px;
+  }
+ 
+  .otp-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .otp-box {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .otp-box input {
+    text-align: center;
+  }
+
+  
+
+
+  .circle-timer {
+    position: relative;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+  }
+   
+  svg {
+    transform: rotate(-90deg);
+  }
+
+  .ion-text-center{
+    display: flex;
+    justify-content: center;
+  }
+   
+  .add-ons{
+    background-color: #94004A;
+    padding: 5px;
+    color: #fff;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .error-mesg {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text color */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    border: 1px solid #f5c6cb; /* Border for better visibility */
+  }
+  .animated-background {
+    animation: fadeIn 0.8s ease-in-out, pulse 1.5s infinite;
+  }

@@ -1,0 +1,213 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>aaa</ion-menu-button>
+    </ion-buttons>
+    <ion-title>My Restaurant</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<!-- <ion-content padding>
+
+  <div class="container h-100">
+
+    <div class="d-flex justify-content-center h-100">
+
+      <div class="user_card">
+
+        <div class="d-flex justify-content-center">
+
+          <div class="brand_logo_container">
+
+            <img src="https://cdn.freebiesupply.com/logos/large/2x/pinterest-circle-logo-png-transparent.png"
+              class="brand_logo" alt="Logo" />
+
+          </div>
+
+        </div>
+
+        <div class="d-flex justify-content-center form_container">
+         
+          <div>
+            <form class="register-form" [formGroup]="userForm" (ngSubmit)="qrRegisterUser()">
+
+            <div class="input-group mb-2">
+
+              <div class="input-group-append">
+
+                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+
+              </div>
+
+              <input type="text" id="userId" name="userId" formControlName="userId" class="form-control input_pass"
+                [(ngModel)]="newUser.userId" pattern="[0-9]*" minlength="10" maxlength="10" placeholder="mobile number">
+
+              <div [hidden]="!userForm.hasError('minlength')">Mobile should be 10digit</div>
+            </div>
+            <p class="alert alert-danger error-message"
+              *ngIf="!userForm.controls['userId'].valid && userForm.controls['userId'].touched">
+              aa
+              <span *ngIf="userForm.controls['userId'].errors?.['required']">
+                Mobile No : Minimum 5 and Max 10 characters long
+              </span>
+            </p>
+
+
+            <div class="input-group mb-3">
+
+              <div class="input-group-append">
+
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+
+              </div>
+
+              <input type="text" id="firstName" name="firstName" formControlName="firstName"
+                class="form-control input_user" [(ngModel)]="newUser.firstName" placeholder="Name">
+
+              <p class="alert alert-danger error-message" *ngIf="!userForm.controls['firstName'].valid 
+                                && userForm.controls['firstName'].touched">
+
+                <span *ngIf="userForm.controls['firstName'].errors?.['required']">
+                  First Name:Minimum 5 and Max 10 characters long
+                </span>
+              </p>
+            </div>
+
+
+
+            <div class="form-group">
+
+              <div class="custom-control custom-checkbox">
+
+                <input type="checkbox" class="custom-control-input" style=" margin: 5px;" id="customControlInline">
+
+                <label class="custom-control-label" for="customControlInline">Remember me</label>
+
+              </div>
+
+            </div>
+
+            <div class="d-flex justify-content-center mt-3 login_container">
+
+              <button type="button" name="button" class="btn login_btn" (click)="qrRegisterUser()">Login</button>
+
+            </div>
+
+          </form>
+        </div>
+        </div>
+
+
+
+        <div class="mt-4">
+
+          <div class="d-flex justify-content-center links">
+
+            Don't have an account? <a href="#" class="ml-2">Sign Up</a>
+
+          </div>
+          <div>
+            Restaurant : {{restaurantId}}
+          </div>
+          <div>
+            Table : {{tableId}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content> -->
+
+
+<ion-content class="ion-padding">
+  <img src="../../../../assets/svg/co-captain-logo.svg">
+  <div class="rectangle1">
+  <img src="../../../../assets/svg/rectangle1.svg">
+</div>
+
+<div class="rectangle2">
+</div>
+
+<div class="rectangle3">
+</div>
+
+  <div class="d-flex justify-content-end top-img">
+  <img src="../../../../assets/svg/top-img.svg">
+</div>
+  <div class="login-card-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class="d-flex justify-content-center">
+          <!-- <img src="../../../../assets/svg/rest-logo.svg" alt="Logo" style="width: 80px;height: 80px;"> -->
+          <img src="{{imageUrl}}{{restaurantLogoImageName}}" style="width: 100px; height: 80px;">
+        </ion-card-title>
+        <div class="d-flex justify-content-center mt-3">
+          <img src="../../../../assets/svg/grapyourgrub.svg">
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <form [formGroup]="userForm" (ngSubmit)="qrRegisterUser()">
+          <ion-item>
+            <ion-label position="floating">Mobile Number</ion-label>
+            <ion-input id="userId" name="userId" formControlName="userId" [(ngModel)]="newUser.userId" maxlength="10" minlength="10" pattern="^[0-9]{10}$" (keypress)="preventNonNumeric($event)"></ion-input>
+            <div [hidden]="!userForm.hasError('minlength')">Mobile should be 10digit</div>
+            <p class="alert-danger error-message" *ngIf="!userForm.controls['userId'].valid && userForm.controls['userId'].touched">
+            <span *ngIf="userForm.controls['userId'].errors?.['required']">
+              Mobile No : Minimum 5 and Max 10 characters long
+            </span>
+            </p>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input id="firstName" name="firstName" formControlName="firstName" [(ngModel)]="newUser.firstName"></ion-input>
+          </ion-item>
+          <p class="alert-danger error-message" *ngIf="!userForm.controls['firstName'].valid && userForm.controls['firstName'].touched">
+            <span *ngIf="userForm.controls['firstName'].errors?.['required']">
+              First Name:Minimum 5 and Max 10 characters long
+            </span>
+          </p>
+
+          <div class="form-group mt-3">
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" style=" margin: 5px;" id="customControlInline">
+              <label class="custom-control-label" for="customControlInline">Remember me</label>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mt-3 login_container">
+            <button type="button" name="button" class="btn login_btn" (click)="qrRegisterUser()">STEP-IN -Taste Awaits</button>
+          </div>
+
+          <div class="d-flex justify-content-center links mt-2">
+            Don't have an account?
+          </div>
+
+        </form>
+        <div *ngIf="errorMessage" class="error-mesg  mt-3 animated-background">
+          <i class="bi bi-exclamation-triangle"></i> {{ errorMessage }}
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- <img src="../../../../assets/svg/rest-logo.svg" alt="Logo"> -->
+       <img src="{{imageUrl}}{{restaurantLogoImageName}}" style="width: 64px; height: 50px;">
+    </ion-buttons>
+    <ion-title class="footer-title">
+      <div class="restaurant">Restaurant</div>
+      <div class="restaurant-name">{{restaurantId}}</div>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-title class="footer-title">
+      <div class="restaurant">Table No</div>
+      <div class="restaurant-name">{{tableId}}</div>
+      </ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+

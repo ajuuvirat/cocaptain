@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>takeorder</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<div class="thank-you-container">
+  <h1 class="thank-you-message">Thank You!</h1>
+  <p class="order-message">Your order ID is: <span class="order-id">{{ orderId }}</span></p>
+  <div class="order-summary">
+    <p class="order-detail">We have successfully received your payment.</p>
+    <button class="continue-button" (click)="continueShopping()">Continue Shopping</button>
+  </div>
+</div>

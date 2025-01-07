@@ -1,0 +1,161 @@
+
+
+<ion-header>
+    <ion-toolbar>
+      <ion-title>Sharing</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<!-- <ion-content>
+<app-order-list [fromSharing]="fromSharing"></app-order-list>
+</ion-content> -->
+
+<!-- <ion-content>
+    <div *ngFor="let product of filteredProducts">
+        <div class="row mb-3 animated-row" [ngClass]="product.availability ? '' : 'myItemBgcolor1'">
+          <div class="col-4">
+            <img src="{{imageUrl}}{{product.image}}" class="img-fluid" />
+          </div>
+  
+          <div class="col-5">
+            <div class="card-body" style="margin-left: -11px;">
+              <div style="display: flex; align-items: center;">
+                <img *ngIf="product?.vegId?.vegName === 'non-veg'" src="assets/icon/non-veg.png"
+                  style="width: 15px; margin-right: 5px;">
+                <img *ngIf="product?.vegId?.vegName === 'veg'" src="assets/icon/veg.png"
+                  style="width: 15px; margin-right: 5px;">
+                <h5 class="card-title" style="margin-bottom: 0;">
+                  <span style="text-transform: capitalize;">{{ product.productName }}</span>
+                </h5>
+                
+              </div>
+  
+              <div class="row">
+                <div class="col-8">
+                  <div class="card-text" style="padding-top: 5px; margin-left: 10px;">
+                    {{ product.productPrice | currency:'INR':'symbol':'1.2-2' }}
+                  </div>
+                </div>
+                <div class="col-4">
+                </div>
+              </div>
+             
+            </div>
+          </div>
+  
+          <div class="col-3 d-flex justify-content-center">
+            <div class="product-food-info">
+          
+            </div>
+    
+          </div>
+  
+        </div>
+
+  
+      </div>
+</ion-content> -->
+
+
+
+<div class="tabs-container">
+  <div class="tabs-header">
+    <div 
+      class="tab" 
+      *ngFor="let tab of tabs; let i = index" 
+      [class.active]="activeTab === i"
+      (click)="selectTab(i)"
+    >
+      {{ tab.label }}
+    </div>
+  </div>
+  
+  <div class="tabs-content">
+    <div *ngIf="activeTab === 0" class="scrollable-container">
+      <div *ngFor="let product of otherInitated">
+        <div>
+          <div class="row">
+            <div class="col-4" style="padding: 6px;">
+              <img src="{{imageUrl}}{{product.productObj?.image}}" class="img-fluid me-3" />
+            </div>
+            <div class="col-4">
+              <div style="display: flex; align-items: center;">
+                <img *ngIf="product?.productObj?.vegId?.vegName === 'non-veg'" 
+                     src="assets/icon/non-veg.png"
+                     style="width: 15px; margin-right: 5px;">
+                <img *ngIf="product?.productObj?.vegId?.vegName === 'veg'" 
+                     src="assets/icon/veg.png"
+                     style="width: 15px; margin-right: 5px;">
+                <div class="card-title" style="margin-bottom: 0;">
+                  <span style="text-transform: capitalize;">
+                    {{ product.productObj.productName }}
+                  </span>
+                </div>
+              </div>
+              <div class="product-price">₹{{ product.productObj.productPrice }}.00</div>
+            </div>
+            <div class="col-4">
+              <button 
+                class="add-ons" 
+                *ngIf="product.acceptedUserId != userId" 
+                (click)="acceptProduct(product.shareId)">
+                Accept
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div *ngIf="activeTab === 1">
+      <div *ngFor="let product of myInitated">
+      <div class="row">
+        <div class="col-4"style="padding: 6px;">
+          <img src="{{imageUrl}}{{product.productObj?.image}}" class="img-fluid me-3" />
+        </div>
+        <div class="col-4">
+          <div style="display: flex; align-items: center;">
+            <img *ngIf="product?.productObj?.vegId?.vegName === 'non-veg'" src="assets/icon/non-veg.png"
+              style="width: 15px; margin-right: 5px;">
+            <img *ngIf="product?.productObj?.vegId?.vegName === 'veg'" src="assets/icon/veg.png"
+              style="width: 15px; margin-right: 5px;">
+            <div class="card-title" style="margin-bottom: 0;">
+              <span style="text-transform: capitalize;">{{ product.productObj.productName }}</span>
+            </div>
+          </div>
+          <div class="product-price"> ₹{{ product.productObj.productPrice }}.00</div>
+        </div>
+        <div class="col-4">
+          
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div *ngIf="activeTab === 2">
+      <div *ngFor="let product of iAccept">
+        <div class="row">
+          <div class="col-4"style="padding: 6px;">
+            <img src="{{imageUrl}}{{product.productObj?.image}}" class="img-fluid me-3" />
+          </div>
+          <div class="col-4">
+            <div style="display: flex; align-items: center;">
+              <img *ngIf="product?.productObj?.vegId?.vegName === 'non-veg'" src="assets/icon/non-veg.png"
+                style="width: 15px; margin-right: 5px;">
+              <img *ngIf="product?.productObj?.vegId?.vegName === 'veg'" src="assets/icon/veg.png"
+                style="width: 15px; margin-right: 5px;">
+              <div class="card-title" style="margin-bottom: 0;">
+                <span style="text-transform: capitalize;">{{ product.productObj.productName }}</span>
+              </div>
+            </div>
+            <div class="product-price"> ₹{{ product.productObj.productPrice }}.00</div>
+          </div>
+          <div class="col-4">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,26 @@
+<ion-tabs  #tabs *ngIf="userStatus === 1" (ionTabsDidChange)="setCurrentTab($event)">
+  <ion-tab-bar> 
+<ion-tab-button 
+tab="list-bulk" 
+[class.active]="activeTab === 'list-bulk'">
+<img *ngIf="activeTab === 'list-bulk'" src="../../assets/svg/service-active.svg" alt="Active Service">
+<img *ngIf="activeTab !== 'list-bulk'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+<ion-label>Product</ion-label>
+</ion-tab-button>
+
+<ion-tab-button 
+tab="bulk-order" 
+[class.active]="activeTab === 'bulk-order'">
+<img *ngIf="activeTab === 'bulk-order'" src="../../assets/svg/service-active.svg" alt="Active Service">
+<img *ngIf="activeTab !== 'bulk-order'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+<ion-label>Order</ion-label>
+</ion-tab-button>
+
+<ion-tab-button tab="order-history" [class.active]="activeTab === 'order-history'" (click)="selectTab('bulk-order')" routerLink="/order-history">
+  <img *ngIf="activeTab === 'order-history'" src="../../assets/svg/service-active.svg" alt="Active Service">
+  <img *ngIf="activeTab !== 'order-history'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+  <ion-label>History</ion-label>
+</ion-tab-button>
+
+</ion-tab-bar>
+</ion-tabs>

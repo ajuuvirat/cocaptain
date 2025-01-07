@@ -1,0 +1,50 @@
+.thank-you-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .thank-you-message {
+    font-size: 2em;
+    color: #4CAF50;
+    font-weight: bold;
+  }
+  
+  .order-message {
+    font-size: 1.2em;
+    color: #333;
+    margin-top: 10px;
+  }
+  
+  .order-id {
+    font-weight: bold;
+    color: #1E88E5;
+  }
+  
+  .order-summary {
+    margin-top: 20px;
+  }
+  
+  .order-detail {
+    font-size: 1em;
+    color: #777;
+  }
+  
+  .continue-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .continue-button:hover {
+    background-color: #45a049;
+  }
+  

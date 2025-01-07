@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>User Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <!--
+  <form class="login-form"  (ngSubmit)="loginUser()"   >
+
+      
+  <ion-item>
+    <ion-label  position="floating" color="primary">User Id</ion-label>
+    <ion-input type="text"  id="userId" class="userId"  [(ngModel)]="newUser.userId" name="userId" 
+    required minlength="5" maxlength="10" #userId="ngModel"></ion-input>
+  </ion-item>
+
+  <div class="error-message" *ngIf="userId.invalid">
+      <ion-icon name="information-circle-outline"></ion-icon>  User Id:Minimum 5 and Max 10 characters long
+    </div>
+  <ion-item>
+    <ion-label  position="floating" color="primary">Password</ion-label>
+    <ion-input type="text" id="password" class="password" type="password"  [(ngModel)]="newUser.password" name="password" 
+    required #password="ngModel"></ion-input>
+  </ion-item>
+  <div class="error-message" *ngIf="password.invalid">
+      <ion-icon name="information-circle-outline"></ion-icon>  Password: Required
+    </div>
+
+ 
+  <ion-button   id="loginUser"  shape="round" color="primary" type="submit" >Login</ion-button>
+  <ion-button  shape="round" color="secondary" [routerLink]="['/register']">Register</ion-button>
+
+</form>
+
+-->
+  
+  <section>
+
+    <div class="container mt-5 pt-5">
+
+      <div class="row">
+
+        <div class="col-12 col-sm-7 col-md-6 m-auto">
+
+          <div class="card border-0 shadow">
+
+            <div class="card-body">
+
+              <div style="text-align: center;">
+
+
+
+                <img
+                  src="https://fastly.picsum.photos/id/698/200/200.jpg?hmac=EElVlYPe8BAq1Btf4bWUxP9NoQP01_e8LTUzpbdKbgY"
+                  class="rounded-circle shadow-4" style="width: 90px;" alt="Avatar" />
+
+              </div>
+<div class="resturant_name">
+  Restaurant name
+</div>
+
+
+              <form action="">
+
+                <input type="text" name="" id="" class="form-control my-4 py-2" placeholder="Username" />
+
+                <input type="text" name="" id="" class="form-control my-4 py-2" placeholder="Password" />
+
+                <div class="text-center mt-3">
+
+                  <button class="btn btn-primary">Login</button>
+
+                  <a href="#" class="nav-link">Already have an account ?</a>
+
+                </div>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+ 
+ 
+</ion-content>

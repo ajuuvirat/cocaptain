@@ -1,0 +1,97 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list-bulk"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Order History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="onContentScroll($event)">
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing product...">
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="accordion" id="orderAccordion">
+    <div *ngFor="let order of orderDetails" class="accordion-item">
+      <h2 class="accordion-header" [id]="'heading' + order.orderId">
+        <button 
+          class="accordion-button" 
+          type="button" 
+          (click)="toggleAccordion(order.orderId)"
+          [attr.aria-expanded]="expandedOrderIds[order.orderId] ? 'true' : 'false'">
+          Table ID: {{ order.tableId }} | Order ID: {{ order.orderId }} | Total Amount: ₹{{ order.totalAmount }}
+        </button>
+      </h2>
+      <div 
+        [ngClass]="{
+          'accordion-collapse': true, 
+          'collapse': !expandedOrderIds[order.orderId], 
+          'show': expandedOrderIds[order.orderId]
+        }"
+        [attr.aria-labelledby]="'heading' + order.orderId" 
+        id="'flush-collapse' + order.orderId">
+        <div class="row table-family mt-1">
+          <div class="col-4 center">Img</div>
+          <div class="col-4">Name</div>
+          <div class="col-2 center">Qty</div>
+          <div class="col-2 center">Cost</div>
+        </div>
+        <div class="accordion-body">
+          <div *ngFor="let detail of order.orderDetailId">
+            <div class="row">
+              <div class="col-4 center">
+                <img src="{{imageUrl}}{{detail?.productId.image}}" class="rounded-circle" style="width: 50px; height: 50px;"/>
+              </div>
+              <div class="col-4">
+                <p>{{ detail.productId.productName }}</p>
+              </div>
+              <div class="col-2 center">
+                <p>{{ detail.quantity }}</p>
+              </div>
+              <div class="col-2 center">
+                <p>₹{{ detail.productId.productPrice }}</p>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-md-4">
+                <img src="{{imageUrl}}{{detail?.productId.image}}" class="img_wid" />
+              </div>
+              <div class="col-md-8">
+                <p>{{ detail.productId.productName }}</p>
+                <p>Quantity: {{ detail.quantity }}</p>
+                <p>Price: ₹{{ detail.productId.productPrice }}</p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<!-- <ion-content>
+<ion-tabs>
+  <ion-tab-bar> 
+    <ion-tab-button tab="list-bulk" [class.active]="activeTab === 'list-bulk'">
+      <img *ngIf="activeTab === 'list-bulk'" src="../../assets/svg/service-active.svg" alt="Active Service" routerLink="/list-bulk">
+      <img *ngIf="activeTab !== 'list-bulk'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+      <ion-label>Product</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="bulk-order" [class.active]="activeTab === 'bulk-order'">
+      <img *ngIf="activeTab === 'bulk-order'" src="../../assets/svg/service-active.svg" alt="Active Service" routerLink="/bulk-order">
+      <img *ngIf="activeTab !== 'bulk-order'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+      <ion-label>Order</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="order-history" [class.active]="activeTab === 'order-history'" (click)="selectTab('bulk-order')" routerLink="/order-history">
+      <img *ngIf="activeTab === 'order-history'" src="../../assets/svg/service-active.svg" alt="Active Service">
+      <img *ngIf="activeTab !== 'order-history'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+      <ion-label>History</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>
+</ion-content> -->

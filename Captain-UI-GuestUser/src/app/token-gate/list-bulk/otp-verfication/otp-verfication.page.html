@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>OTP Verification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div style="display: flex; justify-content: center;">
+  <img src="assets/images/mobile-otp-sms.gif" class="w-50">
+</div>
+<div style="display: flex; justify-content: center;">
+  <p><b>SMS</b> sent to your mobile number</p>
+</div>
+<div style="display: flex; justify-content: center;">
+<p><b>+91 {{userId}}</b></p>
+</div>
+<div class="ion-text-center">
+  <ion-item lines="none">
+    <div class="otp-container">
+      <ion-input *ngFor="let box of otpBoxes; let i = index" 
+                 [(ngModel)]="otp[i]" 
+                 [attr.maxlength]="1" 
+                 (input)="onInputChange(i)" 
+                 (keydown)="onKeyDown($event, i)" 
+                  (focus)="onFocus(i)" 
+                 placeholder="•"
+                 type="text"
+                 maxlength="1"
+                 class="otp-box">
+      </ion-input>
+    </div>
+  </ion-item>
+</div>
+<div class="mt-4" style="display: flex; justify-content: center;">
+  <p>didn't receive the code <span style="color: #94004A;"><b>RESEND CODE</b></span></p>
+</div>
+<div class="circle-timer">
+  <svg width="100" height="100" viewBox="0 0 100 100">
+  <circle
+        cx="50"
+        cy="50"
+        r="45"
+        fill="none"
+        stroke="#f48fb1"
+        stroke-width="5"
+        stroke-dasharray="283"
+        [attr.stroke-dashoffset]="dashOffset"
+  ></circle>
+  </svg>
+  <div class="number">{{ countdown }}</div>
+  </div>
+  <div class="ion-text-center mt-4">
+    <button class="add-ons" (click)="sendAndValidateOtp()" >
+      Validate OTP
+    </button>
+  </div>
+  <div *ngIf="errorMessage" class="error-mesg mt-3 animated-background">
+    <i class="bi bi-exclamation-triangle"></i>   {{ errorMessage }}
+  </div>
+  <div *ngIf="resultMessage" class="error-mesg mt-3 animated-background">
+    <i class="bi bi-exclamation-triangle"></i>  {{ resultMessage }}
+  </div>
+  
+</ion-content>

@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Call</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing product...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="showBanner" class="banner-container">
+    <div class="banner-content">
+      <img src="../../../assets/svg/ringing.svg" alt="Service Icon" class="service-icon">
+      <div class="banner-text">
+        <h2>Request for service</h2>
+        <p>Thanks for using this app.</p>
+      </div>
+      <button class="close-button" (click)="hideBanner()">&#10006;</button>
+    </div>
+  </div>
+  
+  <!-- <button class="instruction" (click)="InstructionProcess()">Needs Instructions</button> -->
+
+
+  <div  *ngFor="let needsTableMap of needsTableMapList">
+    <div class="container">
+      <div class="text"> {{needsTableMap.needsName}}</div>
+      <div class="icon2"><img src="assets/icon/call-decline.svg"></div>
+  </div>
+
+  </div>
+
+  <div  *ngFor="let product of productList">
+    <div *ngFor="let dependency of product.dependencyId">
+      <div class="container">
+        <div class="text">  {{dependency.dependencyName}}</div>
+        <div (click)="addNeeds(dependency.dependencyName)" class="icon"><img src="assets/icon/Call Icon.svg"></div>
+    </div>
+       
+    </div> 
+  </div>
+
+  <div *ngFor="let needs of needsList"> 
+    <div class="container">
+      <div class="text">  {{needs.needsName}}</div>
+      <div (click)="addNeeds(needs.needsName)" class="icon"><img src="assets/icon/Call Icon.svg"></div>
+  </div> 
+     
+  </div>
+
+<!-- 
+  <ion-list *ngFor="let needsTableMap of needsTableMapList">
+    <ion-label>
+      {{needsTableMap.needsName}}
+    </ion-label>
+  </ion-list>
+
+    <ion-list *ngFor="let product of productList">
+       
+
+        <ion-label *ngFor="let dependency of product.dependencyId">
+         
+         <ion-button shape="round" color="primary"   (click)="addNeeds(dependency.dependencyName)" >{{dependency.dependencyName}}</ion-button>
+        </ion-label> 
+         
+      </ion-list>
+
+
+  <ion-list *ngFor="let needs of needsList">
+    <ion-label>
+     
+     <ion-button shape="round" color="primary"  (click)="addNeeds(needs.needsName)" >{{needs.needsName}}</ion-button>
+    </ion-label> 
+     
+  </ion-list> -->
+</ion-content>
+
+<div *ngIf="instructionOpen" class="popup">
+  <div class="popup-content">
+    <div class="language-toggle d-flex align-items-center mb-3" style="gap: 10px;">
+      <label class="mr-2">
+        <input type="radio" name="language" value="en-US" [(ngModel)]="selectedLanguage" (change)="changeLanguage()"> English
+      </label>
+      <label>
+        <input type="radio" name="language" value="ta-IN" [(ngModel)]="selectedLanguage" (change)="changeLanguage()"> Tamil
+      </label>
+      <label>
+        <input type="radio" name="language" value="hi-IN" [(ngModel)]="selectedLanguage" (change)="changeLanguage()"> Hindi
+      </label>
+    </div>
+    <div class="textarea-wrapper position-relative">
+
+      <!-- Textarea -->
+      <textarea
+        name="userInput"
+        [(ngModel)]="selectedProduct.voiceText"
+        placeholder="Listening..."
+        class="form-control"
+        (keydown.enter)="$event.preventDefault()"
+        style="height: 150px;">
+      </textarea>
+    
+      <!-- Mic Icon -->
+      <div class="mic-icon-container position-absolute" (click)="toggleListening(selectedProduct)" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;">
+        <img *ngIf="listening" src="assets/images/mic-animation.gif" class="mic-icon" style="height: 35px; width: 35px;" />
+        <img *ngIf="!listening" src="assets/images/mic.gif" class="mic-icon"style="height: 35px; width: 35px;" />
+      </div>
+    </div>
+    <button (click)="sendVoiceMessage()">Send</button>
+    <button (click)="closeInstruction()">Close</button>
+    <div *ngIf="messageStatus" class="message-status">
+      {{ messageStatus }}
+    </div>
+    <div *ngIf="selectedProduct.voiceText">
+      <h4>Message Sent:</h4>
+      <p>{{ selectedProduct.voiceText }}</p>
+    </div>
+  </div>
+</div>

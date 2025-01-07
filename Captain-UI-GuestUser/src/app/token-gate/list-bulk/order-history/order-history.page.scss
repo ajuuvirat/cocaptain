@@ -1,0 +1,45 @@
+.tab-buttons-container {
+    display: flex;
+    width: 100%; 
+    justify-content: center;
+    font-family: 'Metropolis-medium';
+  }
+  
+  ion-tab-button.active {
+    /* Example: custom styling for active tab */
+    color: #94004A;  /* Active color */
+  }
+
+  .accordion-button {
+    font-weight: bold;
+  }
+  
+  .accordion-body img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 5px;
+  }
+  
+  .accordion-body h5 {
+    margin-top: 10px;
+  }
+  
+  .table-family {
+    font-family: 'Metropolis-Semi-Bold';
+    background: #94004A;
+    height: 43px;
+    border-radius: 10px;
+    color: white;
+    align-items: center;
+  }
+.center{
+ text-align: center;
+}
+
+.img-fluid {
+  border-radius: 15px;
+  width: 100%;
+  max-height: 80px;
+}
+
+

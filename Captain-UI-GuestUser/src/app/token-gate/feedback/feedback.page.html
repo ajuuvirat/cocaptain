@@ -1,0 +1,129 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Feedback</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content padding>
+<h1>Thanks for using this APP</h1>
+
+<div>
+  <h3>Would you like this App</h3>
+  <app-rating [rating]='ratingClicked' [itemId]='1'  (ratingOver)='ratingComponentOver($event, 1)' (ratingClick)='ratingComponentClick($event, 1)'></app-rating>
+  <div>
+    <span *ngIf="isRatingApp">
+        Your rating for App is {{ratingClicked}} Star
+    </span>
+    <span *ngIf="!isRatingApp">
+        Your rating for App is {{ratingOver}} Star
+    </span>
+    
+  </div>
+  <div>
+    <textarea *ngIf="isRatingApp" [(ngModel)]="text_app" ></textarea>
+  </div>
+</div>
+
+<div style="padding-top:70px">
+  <h3>Over experiance in this Restaurant</h3>
+  <app-rating [rating]='ratingClicked_restaurant' [itemId]='2' (ratingOver)='ratingComponentOver($event, 2)' (ratingClick)='ratingComponentClick($event, 2)'></app-rating>
+  <div>
+      <span *ngIf="isRatingRestaurant">
+          Your rating for Restaurant is {{ratingClicked_restaurant}} Star
+      </span>
+      <span *ngIf="!isRatingRestaurant">
+          Your rating for Restaurant is {{ratingOver_restaurant}} Star
+      </span>
+  
+  </div>
+  <div>
+      <textarea *ngIf="isRatingRestaurant" [(ngModel)]="text_restaurant" ></textarea>
+    </div>
+  </div>
+  <div>
+    <ion-button *ngIf="isRatingRestaurant && isRatingApp" (click)="navigateToErrorPage()">
+      Submit
+    </ion-button>
+
+    
+  </div>
+</ion-content> -->
+<div *ngIf="showBanner" class="banner-container">
+  <div class="banner-content">
+    <img src="../../../assets/svg/ringing.svg" alt="Service Icon" class="service-icon">
+    <div class="banner-text">
+      <h2>Request for service</h2>
+      <p>Thanks for using this app.</p>
+    </div>
+    <button class="close-button" (click)="hideBanner()">&#10006;</button>
+  </div>
+</div>
+<ion-content>
+  <div class="overall-content">
+<div class="tab-container">
+  <div 
+    class="tab" 
+    [class.active]="selectedTab === 'app'"
+    (click)="selectTab('app')">
+    App Rating
+  </div>
+  <div 
+    class="tab" 
+    [class.active]="selectedTab === 'restaurant'"
+    (click)="selectTab('restaurant')">
+    Restaurant Rating
+  </div>
+</div>
+
+<!-- App Rating Content -->
+<div [ngClass]="{ 'hidden': selectedTab !== 'app' }" class="tab-content">
+  <img src="../../../assets/svg/apprating-feedback.svg">
+  <p class="feedback-content">
+    Yay! Mind giving us a 5-star rating on the Play store?
+  </p>
+  <app-rating class="rating-stars"
+    [rating]="ratingClicked" 
+    [itemId]="1"  
+    (ratingOver)="ratingComponentOver($event, 1)" 
+    (ratingClick)="ratingComponentClick($event, 1)">
+  </app-rating>
+  <div>
+    <span *ngIf="isRatingApp">
+        Your rating for App is {{ratingClicked}} Star
+    </span>
+    <span *ngIf="!isRatingApp">
+        Your rating for App is {{ratingOver}} Star
+    </span>
+  </div>
+  <div>
+    <textarea class="modern-textarea"  placeholder="Let us know your concern..." *ngIf="isRatingApp" [(ngModel)]="text_app" ></textarea>
+  </div>
+  <button class="submit-btn" *ngIf="isRatingApp" (click)="navigateToErrorPage()">Submit</button>
+</div>
+
+<!-- Restaurant Rating Content -->
+<div [ngClass]="{ 'hidden': selectedTab !== 'restaurant' }" class="tab-content">
+  <img src="../../../assets/svg/restaurant-feedback.svg">
+  <p class="feedback-content">
+    How would you
+rate our restaurant experience?
+  </p>
+  <app-rating class="rating-stars" [rating]='ratingClicked_restaurant' [itemId]='2' (ratingOver)='ratingComponentOver($event, 2)' (ratingClick)='ratingComponentClick($event, 2)'></app-rating>
+  <div>
+    <span *ngIf="isRatingRestaurant">
+        Your rating for Restaurant is {{ratingClicked_restaurant}} Star
+    </span>
+    <span *ngIf="!isRatingRestaurant">
+        Your rating for Restaurant is {{ratingOver_restaurant}} Star
+    </span>
+</div>
+<div>
+  <textarea class="modern-textarea"  placeholder="Let us know your concern..." *ngIf="isRatingRestaurant" [(ngModel)]="text_restaurant" ></textarea>
+</div>
+<button class="submit-btn" *ngIf="isRatingRestaurant" (click)="navigateToErrorPage()">
+  Submit
+</button>
+</div>
+
+</div>
+</ion-content>
