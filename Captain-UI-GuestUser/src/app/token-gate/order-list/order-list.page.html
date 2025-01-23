@@ -1,0 +1,196 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-title *ngIf="fromSharing != 'sharing'">My Orders</ion-title>
+    <ion-title *ngIf="fromSharing == 'sharing'">Sharing</ion-title> -->
+    <ion-title>My Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding> 
+          
+      
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing product...">
+        </ion-refresher-content>
+      </ion-refresher>
+ 
+  
+      <div (click)="orderList()" class="order-now" *ngIf="(listArrayVo.length ?? 0) == 0">
+        <img src="../../../assets/icon/order-now.gif">
+        <p class="no-orders-text">NO ORDERS</p>
+    </div>
+    
+      <div style="margin-top: 20px;">
+
+        <!-- <div class="myheading">
+          My Orders
+        </div> -->
+        <div *ngFor="let orderDetailModel of listArrayVo; let i=index" style="margin-top: 20px;" >
+
+
+          <div class="row mb-3 animated-row" style="margin: 1px;">
+    
+            <div class="col-4">
+    
+              <img src="{{imageUrl}}{{orderDetailModel.productId?.image}}" class="img_wid" />
+            </div>
+    
+    
+            <div class="col-4">
+              <div class="card-body"  >
+    
+    
+                  <div>
+                  
+                  <h5 class="card-title" style="margin-bottom: 0;">
+                    <span>
+                      <img *ngIf="hasNonVeg" src="assets/icon/non-veg.png" style="width: 20px; margin-right: 5px;">
+                      <img *ngIf="hasVeg" src="assets/icon/veg.png" style="width: 20px; margin-right: 5px;">
+                    </span>
+                    <span class="dish-name"> {{ orderDetailModel?.productId?.productName }}</span>
+                  </h5>
+    
+                </div>
+    
+                <div class="dish-price">{{ orderDetailModel.productId?.productPrice | currency:'INR':'symbol':'1.2-2' }}</div>
+    
+                <div style="display: flex; align-items: center;color: lightsteelblue;font-size: 12px;">
+    
+                  <div class="total-orders" style="padding-top: 5px;
+                  " *ngIf="( orderDetailModel.productId?.quantity ?? 0) > 0 &&  orderDetailModel.productId?.availability"> Total Orders :
+                    {{orderDetailModel.orderDetailVo.length}} </div>
+                  
+                </div>
+              </div>
+    
+            </div>
+    
+    
+            <div class="col-4 ">
+    <div class="total-dish-price">
+      {{ ( orderDetailModel?.productId?.productPrice ?? 0 ) * orderDetailModel.quantity  | currency:'INR':'symbol':'1.2-2' }}
+ 
+    </div>
+              <div class="delivery" [innerHTML]="getStatus(orderDetailModel)"></div>
+    
+               
+            </div>
+    
+    
+          </div>
+          <div style="text-align: center; margin-top: 10px;">
+            <button class="add-ons" ion-button (click)="openPopup(orderDetailModel)">Instructions</button>
+          </div>
+          
+      </div>
+      </div>
+
+</ion-content>
+
+<div class="bill-generate">
+  <div class="total-bill" *ngIf="(listArrayVo.length ?? 0) > 0">
+    <div class="row align-items-center">
+      
+      <!-- Column 1: Image -->
+      <div class="col-2">
+        <img src="../../../assets/svg/bill-receipt.svg" alt="Bill Receipt">
+      </div>
+      
+      <!-- Column 2: Text and Total Info -->
+      <div class="col-6">
+        <span class="total-label">Total</span>
+        <div class="order-summary">
+          <span class="result-text">Result of {{totalQuantity}} order</span>
+        </div>
+      </div>
+      
+      <!-- Column 3: Amount -->
+      <div class="col-4 text-right">
+        <span class="price">{{ total | currency:'INR':'symbol':'1.2-2' }}</span>
+      </div>
+    </div>
+  </div>
+  
+<div *ngIf="(listArrayVo.length ?? 0) > 0">
+  <button class="add-to-cart" *ngIf="currentStatus < 2"  (click)="getBill(shareUserId,orderTableId, restaurantId)">Ask For Bill</button>
+  </div>
+ 
+    
+    <div *ngIf="currentStatus >= 2">Bill is generation, pls wait</div>
+  </div>
+
+
+<ng-template #popupTemplate let-item="item">
+  <div class="popup-overlay" (click)="closePopup()"></div>
+  <div class="popup-content">
+    <p>Product</p>
+
+    <!-- Language Selection -->
+    <div class="language-toggle d-flex align-items-center mb-3" style="gap: 10px;">
+      <label class="mr-2">
+        <input type="radio" name="language" value="en-US" [(ngModel)]="selectedLanguage" (change)="changeLanguage()"> English
+      </label>
+      <label>
+        <input type="radio" name="language" value="ta-IN" [(ngModel)]="selectedLanguage" (change)="changeLanguage()"> Tamil
+      </label>
+      <label>
+        <input type="radio" name="language" value="hi-IN" [(ngModel)]="selectedLanguage" (change)="changeLanguage()"> Hindi
+      </label>
+    </div>
+
+
+    <div class="textarea-wrapper position-relative">
+
+      <!-- Textarea -->
+      <textarea
+        name="userInput"
+        [(ngModel)]="selectedProduct.voiceText"
+        placeholder="Listening..."
+        class="form-control"
+        (keydown.enter)="$event.preventDefault()"
+        style="height: 150px;">
+      </textarea>
+    
+      <!-- Mic Icon -->
+      <div class="mic-icon-container position-absolute" (click)="toggleListening(selectedProduct)" style="top: 50%; right: 10px; transform: translateY(-50%); cursor: pointer;">
+        <img *ngIf="listening" src="assets/images/mic-animation.gif" class="mic-icon" style="height: 35px; width: 35px;" />
+        <img *ngIf="!listening" src="assets/images/mic.gif" class="mic-icon"style="height: 35px; width: 35px;" />
+      </div>
+    </div>
+
+    <div class="voice-messages mt-3">
+      <ul>
+        <li *ngFor="let item of selectedProduct.instructions; let i = index">
+          {{ item.message }}
+          <button (click)="deleteInstruction(item.instructionId)">Delete</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-3 button-container d-flex align-items-center justify-content-end">
+      <!-- Cancel Button -->
+      <button class="cancel-btn btn btn-primary mr-2" (click)="closePopup()">
+        Cancel
+      </button>
+      <!-- Send Button -->
+      <button class="send-btn btn btn-primary d-flex align-items-center" (click)="send(selectedProduct)">
+        <span *ngIf="!loading">Send</span>
+        <ion-spinner *ngIf="loading"></ion-spinner>
+      </button>
+    </div>
+  </div>
+
+  <div class="bot-output mt-3">
+    <div>{{ botOutput }}</div>
+  </div>
+</ng-template>
+
+
+
+<div *ngIf="isPopupOpen">
+  <ng-container *ngTemplateOutlet="popupTemplate" [ngTemplateOutletContext]="{ item: selectedProduct }"></ng-container>
+</div>

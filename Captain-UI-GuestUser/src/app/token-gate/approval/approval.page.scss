@@ -1,0 +1,38 @@
+.waiting-approval-gif{
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
+
+.waiting-approval{
+    display: flex;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.info-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px auto; 
+    font-family: Arial, sans-serif; 
+  }
+  
+  .info-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+  
+  .label {
+    font-weight: bold; 
+    color: #333;
+  }
+  
+  .value {
+    color: #555; 
+  }
+  

@@ -1,0 +1,116 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>User Register</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content >
+
+  
+  <form class="register-form"   [formGroup]="userForm" (ngSubmit)="registerUser()" >
+    <!-- First Name-->
+    <ion-item>
+      <ion-label  position="floating" color="primary">First Name</ion-label>
+        
+      <ion-input 
+      type="text"
+      id="firstName"
+      name="firstName"
+      formControlName="firstName"
+      class="form-control" 
+      [(ngModel)]="newUser.firstName"
+      > 
+      </ion-input> 
+        
+    </ion-item> 
+
+    <p class="alert alert-danger error-message" *ngIf="!userForm.controls['firstName'].valid 
+            && userForm.controls['firstName'].touched">
+      
+      <span *ngIf="userForm.controls['firstName'].errors?.['required']" >
+          First Name:Minimum 5 and Max 10 characters long
+      </span>
+    </p>
+
+ <!-- Last Name-->
+    <ion-item>
+      <ion-label  position="floating" color="primary">Last Name</ion-label>
+        
+      <ion-input 
+      type="text"
+      id="lastName"
+      name="lastName"
+      formControlName="lastName"
+      class="form-control" 
+      [(ngModel)]="newUser.lastName"
+      > 
+      </ion-input> 
+          
+    </ion-item> 
+  
+    <p class="alert alert-danger error-message" *ngIf="!userForm.controls['lastName'].valid && userForm.controls['lastName'].touched">
+      
+      <span *ngIf="userForm.controls['lastName'].errors?.['required']" >
+          Last Name:Minimum 5 and Max 10 characters long
+      </span>
+    </p>
+
+<!-- UserId Name-->
+    <ion-item>
+    
+    <ion-label  position="floating" color="primary">User Id</ion-label>
+    
+    <ion-input 
+      type="text"
+      id="userId"
+      name="userId"
+      formControlName="userId"
+      class="form-control" 
+      [(ngModel)]="newUser.userId"
+      > 
+    </ion-input> 
+    
+    </ion-item> 
+
+    <p class="alert alert-danger error-message" *ngIf="!userForm.controls['userId'].valid && userForm.controls['userId'].touched">
+    
+      <span *ngIf="userForm.controls['userId'].errors?.['required']" >
+          User Id:Minimum 5 and Max 10 characters long
+      </span>
+    </p>
+
+<!-- password-->
+<ion-item>
+    <ion-label  position="floating" color="primary">Password</ion-label>
+      
+    <ion-input 
+    type="password"
+    id="password"
+    name="password"
+    formControlName="password"
+    class="form-control" 
+    [(ngModel)]="newUser.password"
+    > 
+    </ion-input> 
+        
+  </ion-item> 
+
+  <p class="alert alert-danger error-message" *ngIf="!userForm.controls['password'].valid 
+          && userForm.controls['password'].touched">
+    
+    <span *ngIf="userForm.controls['password'].errors?.['required']" >
+        Password: Required
+    </span>
+  </p>
+ 
+
+      <ion-button   id="loginUser"  shape="round" color="primary"  (click)="registerUser()" >Register</ion-button>
+      <ion-button  shape="round" color="secondary" (click)="resetUser()">Clear</ion-button>
+      <ion-button  shape="round" color="tertiary" [routerLink]="['/login']">Cancel</ion-button>
+    
+
+  </form>
+</ion-content>

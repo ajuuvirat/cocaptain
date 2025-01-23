@@ -1,0 +1,133 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+        <ion-back-button defaultHref="/home/tabs/list/{{orderId}}"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Detail-product</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+   
+
+<!-- <ion-content >
+<div class="container">
+  <div class="pizza-card">
+    <div class="pizza-image">
+      <img src="{{imageUrl}}{{product.image}}" class="img-fluid" alt="Beef Pizza">
+    </div>
+    <div class="pizza-details">
+      <h2>{{product.productName}}</h2>
+      <p>
+        Fresh beef pizza salad with lettuce green mix, cherry tomatoes, herbs and olive oil, lemon dressing best food...
+        <span class="read-more">Read More</span>
+      </p>
+      
+      <div class="rating">
+        <span>{{product.quantity}} pcs</span>
+        <span class="icon">⭐</span>
+        <span>{{product.calories}} Kcal</span>
+        <span class="icon">🔥</span>
+        <span>{{product.preparationTime}} Min</span>
+        <span class="icon">⏱️</span>
+      </div>
+      <div class="ingredients">
+        <span class="icon">🦐</span>
+        <span class="icon">🍅</span>
+        <span class="icon">🌿</span>
+        <span class="icon">🥑</span>
+      </div>
+      <div class="price">{{ product.productPrice | currency:'INR':'symbol':'1.2-2' }}</div>
+      <button class="add-to-cart">Add To Cart</button>
+    </div>
+  </div>
+</div>
+</ion-content> -->
+
+
+<section>
+  <div class="content">
+    <div class="product-list">
+    <p class="product-name" style="display: flex; justify-content: center;text-transform: capitalize;">{{product.productName}}</p>
+    <p class="product-name" style="display: flex; justify-content: center;">₹ {{product.productPrice}}</p>
+  </div>
+    <img src="{{imageUrl}}{{product.image}}" alt="Centered Image" class="center-image">
+  </div>
+</section>
+
+<div class="pizza-card">
+
+  <div class="pizza-details">
+    <p>
+     {{product.productDesc}}
+    </p>
+    
+    <div class="rating">
+      <span>{{ totalcount }} pcs</span>
+      <span class="icon">⭐</span>
+      <span>{{product.calories}} Kcal</span>
+      <span class="icon">🔥</span>
+      <span>{{product.preparationTime}} Min</span>
+      <span class="icon">⏱️</span>
+    </div>
+
+    <!-- <div class="quantity">
+      <button class="quantity-button">-</button>
+      <span>2</span>
+      <button class="quantity-button">+</button>
+    </div> -->
+    <!-- <div class="price">{{ product.productPrice | currency:'INR':'symbol':'1.2-2' }}</div>
+    <button class="add-to-cart">Add To Cart</button> -->
+  </div>
+</div>
+
+
+
+
+<div class="add-previous">
+
+  <div class="video-thumbnail-container" (click)="playVideo()">
+    <!-- Thumbnail Image -->
+    <img *ngIf="!isPlaying" src="../../../assets/images/cooking.png" alt="Thumbnail" class="thumbnail-image" />
+  
+    <!-- Video Element -->
+    <video 
+      #videoPlayer 
+      *ngIf="isPlaying" 
+      src="../../../assets/videos/2620043-uhd_3840_2160_25fps.mp4" 
+      class="video-player" 
+      controls 
+      autoplay
+    ></video>
+  </div>
+  
+  <div class="row mt-5">
+<div class="col-6 d-flex justify-content-center">
+  <div class="quantity-selector">
+    <span *ngIf="(product.status_0 ?? 0) === 0 && product?.availability" (click)="addProduct(product)">
+      <ion-icon name="add-circle" style="font-size: 28px; color: #94004A;"></ion-icon>
+    </span>
+    <ng-container class="d-flex align-items-center justify-content-center mt-3" *ngIf="(product.status_0 ?? 0) > 0 && product?.availability">
+      
+      <span (click)="deleteOrderByProduct(product)">
+        <ion-icon name="remove-circle" style="font-size: 28px; color: #94004A;"></ion-icon>
+      </span>
+      <span class="quantity">{{ product.status_0 || 0 }}</span>
+      <span (click)="addProduct(product)" style="position: relative; display: inline-block;">
+       
+        <ion-icon
+          name="add-circle"
+          style="font-size: 28px; color: #94004A;"
+        ></ion-icon>
+      </span>
+      
+    </ng-container>
+  </div>
+</div>
+<div class="col-6">
+  <button class="add-to-cart">Add to cart</button>
+</div>
+  </div>
+</div>
+
+

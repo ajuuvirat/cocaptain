@@ -1,0 +1,13 @@
+# Captain-ui-guest-user-ionic-7
+
+# Captain-UI-GuestUser
+User will come and scan QR code and get inside to order the product
+check your node version 
+> nvm list
+make sure we are using 16.16.0
+nvm use 16.16.0
+node -v
+
+
+npm install
+ionic serve or ng serve

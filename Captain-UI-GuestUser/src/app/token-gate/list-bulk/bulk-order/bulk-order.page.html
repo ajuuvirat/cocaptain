@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>bulk-order</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <div class="row mb-3 animated-row" style="margin: 1px;">
+    <!-- <div *ngFor="let item of orderList">
+      {{item.productName}} - {{item.productPrice}}
+        <div class="col-4">
+          <img src="{{imageUrl}}{{item?.image}}" class="img_wid" />
+        </div>
+      </div> -->
+    </div>
+
+    <div *ngFor="let orderDetailModel of orderList; let i=index" style="margin-top: 20px;" >
+      <div class="row mb-3 animated-row" style="margin: 1px;">
+        <div class="col-4">
+          <img src="{{imageUrl}}{{orderDetailModel?.image}}" class="img_wid" />
+        </div>
+
+
+        <div class="col-4">
+          <div class="card-body"  >
+              <p class="card-title" style="margin-bottom: 0;">
+                <span>
+                  <img *ngIf="hasNonVeg" src="assets/icon/non-veg.png" style="width: 20px; margin-right: 5px;">
+                  <img *ngIf="hasVeg" src="assets/icon/veg.png" style="width: 20px; margin-right: 5px;">
+                </span>
+                <span class="dish-name"> {{ orderDetailModel?.productName }}</span>
+              </p>
+            <div class="dish-price">{{ orderDetailModel?.productPrice | currency:'INR':'symbol':'1.2-2'}}</div>
+          </div>
+          <div class="total-orders" style="padding-top: 5px;
+          " *ngIf="( orderDetailModel?.totalQuantity ?? 0) > 0 &&  orderDetailModel?.availability"> Total Orders : {{orderDetailModel.totalQuantity }} </div>
+        </div>
+        <div class="col-4">
+          <div class="total-dish-price">
+            {{ ( orderDetailModel?.productPrice ?? 0 ) * orderDetailModel.quantity  | currency:'INR':'symbol':'1.2-2' }}
+       
+          </div>
+        </div>
+      </div>   
+  </div>
+
+      <button (click)="saveOrderBill()">Bill</button>
+  </ion-content>
+  
+  <ion-footer>
+    <ion-toolbar>
+      <div class="tab-buttons-container">
+        <ion-tab-button 
+        tab="list-bulk" 
+        [class.active]="activeTab === 'list-bulk'"(click)="selectTab('list-bulk')"routerLink ="/list-bulk">
+        <img *ngIf="activeTab === 'list-bulk'" src="../../assets/svg/service-active.svg" alt="Active Service">
+        <img *ngIf="activeTab !== 'list-bulk'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+        <ion-label>Product</ion-label>
+        </ion-tab-button>
+        <ion-tab-button 
+        tab="bulk-order"  
+        [class.active]="activeTab === 'bulk-order'"(click)="selectTab('bulk-order')"routerLink ="/bulk-order">
+        <img *ngIf="activeTab === 'bulk-order'" src="../../assets/svg/service-active.svg" alt="Active Service">
+        <img *ngIf="activeTab !== 'bulk-order'" src="../../assets/svg/service-deactive.svg" alt="Deactivated Service">
+        <ion-label>Order</ion-label>
+        </ion-tab-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>

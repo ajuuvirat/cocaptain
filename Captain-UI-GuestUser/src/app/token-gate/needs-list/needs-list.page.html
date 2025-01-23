@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Call</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing product...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngIf="showBanner" class="banner-container">
+    <div class="banner-content">
+      <img src="../../../assets/svg/ringing.svg" alt="Service Icon" class="service-icon">
+      <div class="banner-text">
+        <h2>Request for service</h2>
+        <p>Thanks for using this app.</p>
+      </div>
+      <button class="close-button" (click)="hideBanner()">&#10006;</button>
+    </div>
+  </div>
+  
+  
+
+  <div  *ngFor="let needsTableMap of needsTableMapList">
+    <div class="container">
+      <div class="text"> {{needsTableMap.needsName}}</div>
+      <div class="icon2"><img src="assets/icon/call-decline.svg"></div>
+  </div>
+  </div>
+
+  <div  *ngFor="let product of productList">
+    <div *ngFor="let dependency of product.dependencyId">
+      <div class="container">
+        <div class="text">  {{dependency.dependencyName}}</div>
+        <div (click)="addNeeds(dependency.dependencyName)" class="icon"><img src="assets/icon/Call Icon.svg"></div>
+    </div>
+       
+    </div> 
+    
+  </div>
+
+  <div *ngFor="let needs of needsList"> 
+    <div class="container">
+      <div class="text">  {{needs.needsName}}</div>
+      <div (click)="addNeeds(needs.needsName)" class="icon"><img src="assets/icon/Call Icon.svg"></div>
+  </div> 
+     
+  </div>
+
+
+<!-- 
+  <ion-list *ngFor="let needsTableMap of needsTableMapList">
+    <ion-label>
+      {{needsTableMap.needsName}}
+    </ion-label>
+  </ion-list>
+
+    <ion-list *ngFor="let product of productList">
+       
+
+        <ion-label *ngFor="let dependency of product.dependencyId">
+         
+         <ion-button shape="round" color="primary"   (click)="addNeeds(dependency.dependencyName)" >{{dependency.dependencyName}}</ion-button>
+        </ion-label> 
+         
+      </ion-list>
+
+
+  <ion-list *ngFor="let needs of needsList">
+    <ion-label>
+     
+     <ion-button shape="round" color="primary"  (click)="addNeeds(needs.needsName)" >{{needs.needsName}}</ion-button>
+    </ion-label> 
+     
+  </ion-list> -->
+</ion-content>

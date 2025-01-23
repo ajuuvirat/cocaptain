@@ -1,0 +1,425 @@
+[
+    {
+        "productId": 1,
+        "productName": "idli",
+        "productDesc": "idli",
+        "image": "idly-20231106064241.jpg",
+        "video": null,
+        "pieceCount": "2",
+        "quantity": "2",
+        "nextAvailable": null,
+        "productComments": "idli",
+        "addOn": "wer",
+        "availability": true,
+        "calories": "4",
+        "productPrice": "2",
+        "preparationTime": "4",
+        "packingCharge": "2",
+        "cGst": "2.5",
+        "sGst": "2.5",
+        "iGst": "0",
+        "finalPrice": "7",
+        "vegId": {
+            "vegId": 1,
+            "vegName": "veg"
+        },
+        "categoryId": {
+            "categoryId": 1,
+            "categoryName": "cat1",
+            "subCategoryList": [
+                {
+                    "subCategoryId": 1,
+                    "subCategoryName": "subCat1"
+                },
+                {
+                    "subCategoryId": 2,
+                    "subCategoryName": "subCat2"
+                }
+            ]
+        },
+        "subCategoryId": {
+            "subCategoryId": 1,
+            "subCategoryName": "subCat1"
+        },
+        "productServeMapId": [
+            {
+                "id": 96,
+                "servedDuringId": {
+                    "servedDuringId": "3",
+                    "serverdDuringName": "Dinner"
+                }
+            }
+        ],
+        "dependencyId": [
+            {
+                "dependencyId": 1,
+                "dependencyName": "sat"
+            }
+        ],
+        "cuisineId": {
+            "cuisineId": 2,
+            "cuisineName": "southeindian"
+        },
+        "gstId": {
+            "gstId": 2,
+            "gstName": "5"
+        },
+        "restaurantId": {
+            "id": 1,
+            "restaurantId": "vjs",
+            "restaurantName": "vjs",
+            "password": "vjs",
+            "zipcode": null,
+            "addressId": null,
+            "ownerName": "111111111",
+            "phoneNumer": "1111111112",
+            "emailId": "vjs@vjs.com",
+            "totalTable": null,
+            "cuisineName": null,
+            "shopLicense": "1111111",
+            "fssaiNo": "1111111",
+            "gstPan": "111111",
+            "photo": null,
+            "skipApproval": false
+        },
+        "recommendation": false
+    },
+    {
+        "productId": 2,
+        "productName": "dosa",
+        "productDesc": "it is dosa",
+        "image": "dosa-20231106064200.jpg",
+        "video": null,
+        "pieceCount": "1",
+        "quantity": "1",
+        "nextAvailable": null,
+        "productComments": "nothing",
+        "addOn": "awsdasfasfsdf",
+        "availability": true,
+        "calories": "2",
+        "productPrice": "20",
+        "preparationTime": "30",
+        "packingCharge": "0",
+        "cGst": "0",
+        "sGst": "0",
+        "iGst": "0",
+        "finalPrice": "20",
+        "vegId": {
+            "vegId": 1,
+            "vegName": "veg"
+        },
+        "categoryId": {
+            "categoryId": 2,
+            "categoryName": "cat2",
+            "subCategoryList": [
+                {
+                    "subCategoryId": 3,
+                    "subCategoryName": "subCat3"
+                },
+                {
+                    "subCategoryId": 4,
+                    "subCategoryName": "subCat4"
+                }
+            ]
+        },
+        "subCategoryId": {
+            "subCategoryId": 4,
+            "subCategoryName": "subCat4"
+        },
+        "productServeMapId": [
+            {
+                "id": 95,
+                "servedDuringId": {
+                    "servedDuringId": "1",
+                    "serverdDuringName": "breakFast"
+                }
+            }
+        ],
+        "dependencyId": [
+            {
+                "dependencyId": 2,
+                "dependencyName": "chutney"
+            }
+        ],
+        "cuisineId": {
+            "cuisineId": 2,
+            "cuisineName": "southeindian"
+        },
+        "gstId": {
+            "gstId": 1,
+            "gstName": "0"
+        },
+        "restaurantId": {
+            "id": 1,
+            "restaurantId": "vjs",
+            "restaurantName": "vjs",
+            "password": "vjs",
+            "zipcode": null,
+            "addressId": null,
+            "ownerName": "111111111",
+            "phoneNumer": "1111111112",
+            "emailId": "vjs@vjs.com",
+            "totalTable": null,
+            "cuisineName": null,
+            "shopLicense": "1111111",
+            "fssaiNo": "1111111",
+            "gstPan": "111111",
+            "photo": null,
+            "skipApproval": false
+        },
+        "recommendation": false
+    },
+    {
+        "productId": 3,
+        "productName": "poori",
+        "productDesc": "asfsdf",
+        "image": "poori-20231106064027.jpg",
+        "video": null,
+        "pieceCount": "2",
+        "quantity": "2",
+        "nextAvailable": null,
+        "productComments": "dfsdfgds",
+        "addOn": "aaaaa",
+        "availability": true,
+        "calories": "45",
+        "productPrice": "20",
+        "preparationTime": null,
+        "packingCharge": "0",
+        "cGst": "0",
+        "sGst": "0",
+        "iGst": "0",
+        "finalPrice": "20",
+        "vegId": {
+            "vegId": 1,
+            "vegName": "veg"
+        },
+        "categoryId": {
+            "categoryId": 2,
+            "categoryName": "cat2",
+            "subCategoryList": [
+                {
+                    "subCategoryId": 3,
+                    "subCategoryName": "subCat3"
+                },
+                {
+                    "subCategoryId": 4,
+                    "subCategoryName": "subCat4"
+                }
+            ]
+        },
+        "subCategoryId": null,
+        "productServeMapId": [
+            {
+                "id": 94,
+                "servedDuringId": {
+                    "servedDuringId": "1",
+                    "serverdDuringName": "breakFast"
+                }
+            }
+        ],
+        "dependencyId": [
+            {
+                "dependencyId": 3,
+                "dependencyName": "chutney"
+            },
+            {
+                "dependencyId": 4,
+                "dependencyName": "sambar"
+            }
+        ],
+        "cuisineId": {
+            "cuisineId": 2,
+            "cuisineName": "southeindian"
+        },
+        "gstId": {
+            "gstId": 1,
+            "gstName": "0"
+        },
+        "restaurantId": {
+            "id": 1,
+            "restaurantId": "vjs",
+            "restaurantName": "vjs",
+            "password": "vjs",
+            "zipcode": null,
+            "addressId": null,
+            "ownerName": "111111111",
+            "phoneNumer": "1111111112",
+            "emailId": "vjs@vjs.com",
+            "totalTable": null,
+            "cuisineName": null,
+            "shopLicense": "1111111",
+            "fssaiNo": "1111111",
+            "gstPan": "111111",
+            "photo": null,
+            "skipApproval": false
+        },
+        "recommendation": true
+    },
+    {
+        "productId": 4,
+        "productName": "upma",
+        "productDesc": "upma",
+        "image": "download-20231106060534.jpg",
+        "video": null,
+        "pieceCount": "1",
+        "quantity": "1",
+        "nextAvailable": null,
+        "productComments": "upma",
+        "addOn": "qweqwe",
+        "availability": true,
+        "calories": "1",
+        "productPrice": "20",
+        "preparationTime": "1",
+        "packingCharge": "0",
+        "cGst": "2.5",
+        "sGst": "2.5",
+        "iGst": "0",
+        "finalPrice": "25",
+        "vegId": null,
+        "categoryId": {
+            "categoryId": 1,
+            "categoryName": "cat1",
+            "subCategoryList": [
+                {
+                    "subCategoryId": 1,
+                    "subCategoryName": "subCat1"
+                },
+                {
+                    "subCategoryId": 2,
+                    "subCategoryName": "subCat2"
+                }
+            ]
+        },
+        "subCategoryId": {
+            "subCategoryId": 1,
+            "subCategoryName": "subCat1"
+        },
+        "productServeMapId": [
+            {
+                "id": 92,
+                "servedDuringId": {
+                    "servedDuringId": "2",
+                    "serverdDuringName": "Lunch"
+                }
+            }
+        ],
+        "dependencyId": [
+            {
+                "dependencyId": 5,
+                "dependencyName": "chutney"
+            }
+        ],
+        "cuisineId": {
+            "cuisineId": 1,
+            "cuisineName": "vjs"
+        },
+        "gstId": {
+            "gstId": 2,
+            "gstName": "5"
+        },
+        "restaurantId": {
+            "id": 1,
+            "restaurantId": "vjs",
+            "restaurantName": "vjs",
+            "password": "vjs",
+            "zipcode": null,
+            "addressId": null,
+            "ownerName": "111111111",
+            "phoneNumer": "1111111112",
+            "emailId": "vjs@vjs.com",
+            "totalTable": null,
+            "cuisineName": null,
+            "shopLicense": "1111111",
+            "fssaiNo": "1111111",
+            "gstPan": "111111",
+            "photo": null,
+            "skipApproval": false
+        },
+        "recommendation": true
+    },
+    {
+        "productId": 5,
+        "productName": "podi idli",
+        "productDesc": "podi idli",
+        "image": "download-20231106061409.jpg",
+        "video": null,
+        "pieceCount": "1",
+        "quantity": "1",
+        "nextAvailable": null,
+        "productComments": "podi idli",
+        "addOn": null,
+        "availability": true,
+        "calories": "1",
+        "productPrice": "33",
+        "preparationTime": "1",
+        "packingCharge": "1",
+        "cGst": "2.5",
+        "sGst": "2.5",
+        "iGst": "0",
+        "finalPrice": "38",
+        "vegId": {
+            "vegId": 1,
+            "vegName": "veg"
+        },
+        "categoryId": {
+            "categoryId": 2,
+            "categoryName": "cat2",
+            "subCategoryList": [
+                {
+                    "subCategoryId": 3,
+                    "subCategoryName": "subCat3"
+                },
+                {
+                    "subCategoryId": 4,
+                    "subCategoryName": "subCat4"
+                }
+            ]
+        },
+        "subCategoryId": {
+            "subCategoryId": 4,
+            "subCategoryName": "subCat4"
+        },
+        "productServeMapId": [
+            {
+                "id": 93,
+                "servedDuringId": {
+                    "servedDuringId": "2",
+                    "serverdDuringName": "Lunch"
+                }
+            }
+        ],
+        "dependencyId": [
+            {
+                "dependencyId": 6,
+                "dependencyName": "asdsad"
+            }
+        ],
+        "cuisineId": {
+            "cuisineId": 2,
+            "cuisineName": "southeindian"
+        },
+        "gstId": {
+            "gstId": 2,
+            "gstName": "5"
+        },
+        "restaurantId": {
+            "id": 1,
+            "restaurantId": "vjs",
+            "restaurantName": "vjs",
+            "password": "vjs",
+            "zipcode": null,
+            "addressId": null,
+            "ownerName": "111111111",
+            "phoneNumer": "1111111112",
+            "emailId": "vjs@vjs.com",
+            "totalTable": null,
+            "cuisineName": null,
+            "shopLicense": "1111111",
+            "fssaiNo": "1111111",
+            "gstPan": "111111",
+            "photo": null,
+            "skipApproval": false
+        },
+        "recommendation": true
+    }
+]

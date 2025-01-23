@@ -1,0 +1,258 @@
+/*
+swiper-container{
+    width: 100%;
+    height: 100%;
+}
+
+swiper-slide{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.card{
+    margin: 0 .5em;
+}
+
+
+ */
+
+
+
+
+ 
+ swiper-container{
+    width: 100%;
+    max-height: 289px;
+
+}
+.card-wrapper{
+    margin: 25px;
+}
+.img-wrapper{
+    width: 100px;
+    height: 100px;
+}
+ 
+
+@import url('https://fonts.googleapis.com/css?family=Trirong');
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+ 
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400&display=swap');
+ 
+ 
+  @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@100;400&family=Merienda&display=swap');
+
+
+  .card {
+     --bs-card-spacer-y: 0rem; 
+     --bs-card-spacer-x: 0rem; 
+     --bs-card-title-spacer-y: 0rem; 
+    //  --bs-card-title-color: ;
+  }
+
+//   swiper-slide,ion-item {
+//     --background:  url("../../../assets/icon/purple.jpg") !important;
+//     --background-repeat: no-repeat;
+//     --background-size:100% 100%;
+    
+// }
+
+ion-col{
+  background-color:linear-gradient(90deg, rgba(2,0,36,1) 14%, rgba(121,9,43,0.6839985994397759) 42%, rgba(117,16,50,1) 100%, rgba(0,212,255,1) 100%);
+  }
+ 
+.myFontCls{
+  font-family: "Trirong", serif;
+  // font-family: 'Barlow', sans-serif;
+  // font-family: 'Barlow', sans-serif;
+  // font-family: 'Merienda', cursive;
+  // font-family: "Sofia", sans-serif;"
+}
+ 
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+ 
+
+.item-2{
+flex-grow: 1;
+}
+
+.item1 {
+    width: 150px;
+
+    height: 150px;
+
+    margin: 10px;
+
+    background-color: #fb7185;
+
+    padding: 1em;
+
+    font-weight: 700;
+
+    color: var(--clr-light);
+
+    text-align: center;
+
+    border: 10px solid var(--clr-accent);
+
+    border-radius: 10px;
+
+} 
+
+ 
+
+ 
+
+ 
+
+ 
+
+.grid-layout{
+
+ 
+
+    border: 1px black solid;
+
+}
+ 
+.mycard{
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
+    border: 1px solid grey;
+    // background-color: lightseagreen;
+    // color: #fff;
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+
+/*
+.card {
+    flex-direction: row;
+    // max-width: 30em;
+    border: 0;
+    background-color: #696969;
+    color: #fff;
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
+  }
+  .card img {
+    max-width: 25%;
+    margin: auto;
+    padding: 0.5em;
+    border-radius: 0.7em;
+  }
+  .card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .text-section {
+    max-width: 60%;
+  }
+  .cta-section {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+  .cta-section .btn {
+    padding: 0.2em 0.5em;
+    font-size: 1em;
+    color: #696969;
+  }
+  .card-text {
+    letter-spacing: 0.1em;
+  }
+  */
+
+  .myImg{
+    // margin: 10px;
+  }
+
+ion-grid{
+    height: 100%;
+}
+.ion-row-cls{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // height: 100%;
+}
+
+.img_wid{
+    
+    object-fit: cover;
+    /* float: left; */
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border: 3px solid darkgray;
+}
+
+.myPlus{
+    font-size: 35px;
+    border-radius: 50%;
+    color: whitesmoke;
+    border: 2px solid black;
+}
+
+ion-button {
+    font-size: 8px;
+}
+
+.myItemBgcolor{
+  background-color: lightgray;
+}
+
+
+.loading {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.send-icon {
+  position: absolute;
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 100;
+}
+
+// .mic-btn{
+//   position: absolute;
+//   right: 0px;
+//   top: 50%;
+//   transform: translateY(-50%);
+//   cursor: pointer;
+//   z-index: 100;
+// }
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.textarea {
+  flex: 1;
+}
+
+.send-icon {
+  margin-left: 10px; /* Adjust as needed */
+}
+
+.mic-btn {
+  width: 75px;
+  height: 45px;
+  margin-left: 10px;
+}

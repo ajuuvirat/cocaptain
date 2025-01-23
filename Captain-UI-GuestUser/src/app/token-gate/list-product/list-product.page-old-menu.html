@@ -1,0 +1,423 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Table : <span
+        *ngIf="order != undefined && order.tableId != undefined">{{order.tableId}}</span></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull to refresh" refreshingSpinner="circles"
+      refreshingText="Refreshing product...">
+    </ion-refresher-content>
+  </ion-refresher>
+ 
+
+ 
+
+<!--
+  <swiper-container [loop]="true" [options]=" {
+                  initialSlide: 1,
+                  
+                }" [speed]="1000" [autoplay]="true">
+    <swiper-slide>
+      <div class="card-wrapper">
+        <div class="card shadow p-3 mb-5 bg-body rounded">
+          <div class="img-wrapper mx-auto">
+            <img src="https://www.kasandbox.org/programming-images/avatars/spunky-sam.png" class="card-img-top"
+              alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Card title1</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="card-wrapper">
+        <div class="card shadow p-3 mb-5 bg-body rounded">
+          <div class="img-wrapper mx-auto">
+            <img src="https://www.kasandbox.org/programming-images/avatars/spunky-sam-green.png" class="card-img-top"
+              alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Card title1</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+    <swiper-slide>
+      <div class="card-wrapper">
+        <div class="card shadow p-3 mb-5 bg-body rounded">
+          <div class="img-wrapper mx-auto">
+            <img src="https://www.kasandbox.org/programming-images/avatars/purple-pi.png" class="card-img-top"
+              alt="...">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Card title1</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </swiper-slide>
+
+
+  </swiper-container>
+
+-->
+ <!-- Start Recommendatio product list-->
+<swiper-container [loop]="true" [options]=" {initialSlide: 1,effect: 'flip',centeredSlides: true,autoHeight: true}" [speed]="1000" [autoplay]="true"> 
+  
+  <swiper-slide *ngFor="let product of productList">
+    <div class="card-wrapper">
+      <div class="card shadow p-3 mb-5 bg-body rounded">
+        <div class="img-wrapper mx-auto">
+          <img
+          src="{{imageUrl}}{{product.image}}"
+          class="rounded-circle shadow-4 card-img-top img_wid" style="width: 90px;" alt="Avatar" />
+          <!-- <ion-avatar   >
+            <img src="{{imageUrl}}{{product.image}}" class="card-img-top img_wid1">
+          </ion-avatar>          -->
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{product.productName}}</h5>
+          <p class="card-text" style="margin-bottom: 0px;">Price: Rs.{{product.productPrice}}</p>
+          <button  type="button" class="btn btn-primary" (click)="productDetail(product)">More..</button>
+      
+        </div>
+      </div>
+    </div>
+  </swiper-slide>
+ 
+</swiper-container>
+ <!-- End Recommendatio product list-->
+
+ <!--Start Recommendatio product list-->
+  <!--<ion-card *ngFor="let product of productList">
+    <div *ngIf="product.recommendation">
+
+      <ion-avatar slot="start">
+        <img src="{{imageUrl}}{{product.image}}">
+      </ion-avatar>
+
+      <h2>{{product.productName}}</h2>
+
+      <ion-card-content>
+        <p>{{product.categoryId?.productName}}<ion-label (click)="productDetail(product)">More..</ion-label></p>
+
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+
+          <div *ngIf="product?.vegId?.vegName == 'veg'">
+            <img src="assets/icon/veg.png" style="width:10%" />
+          </div>
+          <div *ngIf="product?.vegId?.vegName == 'non-veg'">
+            <img src="assets/icon/non-veg.png" style="width:10%" />
+          </div>
+
+        </ion-col>
+        <ion-col>
+          <div>Rs.{{product.productPrice}}</div>
+
+        </ion-col>
+        <ion-col align-self-center text-center>
+        <i (click)="addProduct(product)" class="fas fa-plus"></i>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-label *ngIf="(product.quantity ?? 0) > 0 && product?.orderDetailList">
+
+
+        Total: <P>{{ product.orderDetailList ? product.orderDetailList.length : 0 }}</P>
+
+
+      </ion-label>
+
+
+
+
+
+      <ion-label *ngFor="let orderDetail of product.orderDetailList; let i = index">
+        <ion-button id="{{'orderDetail_'+i}}" shape="round" color="primary"
+          (click)="deleteOrder(orderDetail,product)">Del-{{orderDetail.status}}</ion-button>
+      </ion-label>
+
+
+    </div>
+  </ion-card>-->
+ <!-- End Recommendatio product list-->
+
+
+<ion-list style="display: none;">
+
+  <ion-item *ngFor="let product of productList" >
+    <ion-grid class="mycard" >
+      <ion-row class="ion-row-cls">
+        <ion-col size="2">
+
+       
+        <div class="myImg">
+          <ion-avatar   >
+            <img src="{{imageUrl}}{{product.image}}" class="img_wid">
+          </ion-avatar>
+        </div>
+      </ion-col>
+
+
+        <ion-col  size="8" class="plan-left" style="padding-left:10px">
+          <ion-label >
+            
+            <div *ngIf="product?.availability">
+
+
+              <div >
+                <div  style="float: left;margin-right: 10px;">
+                  <h2>{{product.productName}}</h2>  
+                </div>
+                <div >
+                  <span (click)="productDetail(product)"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                </div>
+              </div>
+
+              <div>
+                <div style="float: left;">
+                  <h3>Price: {{product.productPrice}}</h3>
+                </div>
+
+                <div style="float: right;margin-right: 10px;">
+                  <P *ngIf="(product?.quantity ?? 0) > 0 && product?.availability">Total Order : {{product?.orderDetailList?.length}}
+                  </P>
+                </div>
+              </div>
+
+            </div>
+            
+
+            <div *ngIf="!product?.availability">
+
+              <div>
+                <h2>{{product.productName}}</h2>  
+              </div>
+
+              <div>
+                <h3>Price: {{product.productPrice}}</h3>
+              </div>
+              
+              <div>
+                <P *ngIf="(product?.quantity ?? 0) > 0 && product?.availability">Total Order : {{product?.orderDetailList?.length}}
+                </P>
+              </div>
+              
+            </div>
+
+           
+          </ion-label>
+         
+        </ion-col>
+
+        <ion-col  size="2" class="plan-left" >
+          
+          <ion-label >
+            <ion-avatar *ngIf="!product.availability" class="availabilityImg" style="padding-top:10px">
+              <img class="img_wid" src="assets/icon/not_available.jpg">
+            </ion-avatar>
+
+        
+
+            <ion-label style="margin-left: 10px;" *ngIf="(product?.quantity ?? 0) > 0 && product?.availability"> 
+              <i (click)="addProduct(product)" class="fa fa-plus-circle myPlus" aria-hidden="true"></i>
+            </ion-label>
+            
+          </ion-label>
+        </ion-col>
+
+      </ion-row>
+
+
+      <ion-row >
+        
+        <div *ngFor="let orderDetail of product.orderDetailList; let i = index">
+          <div *ngIf="orderDetail.status == '0'">
+            <!-- <ion-button id="{{'orderDetail_'+i}}" shape="round" color="primary" (click)="deleteOrder(orderDetail,product)">Del-{{orderDetail.status}}</ion-button> -->
+            <button id="{{'orderDetail_'+i}}" type="button" class="btn btn-primary" (click)="deleteOrder(orderDetail,product)">Del-{{orderDetail.status}}</button>
+          </div>
+
+          <div *ngIf="orderDetail.status == '1'" >
+            <!-- <ion-button id="{{'orderDetail_'+i}}" shape="round" color="secondary">Del-{{orderDetail.status}}</ion-button> -->
+             <button id="{{'orderDetail_'+i}}" type="button" class="btn btn-danger">Del-{{orderDetail.status}}</button>
+          </div>
+
+          <div *ngIf="orderDetail.status == '2'">
+            <!-- <ion-button id="{{'orderDetail_'+i}}" shape="round" color="secondary">Del-{{orderDetail.status}}</ion-button> -->
+             <button id="{{'orderDetail_'+i}}" type="button" class="btn btn-warning">Del-{{orderDetail.status}}</button>
+          </div>
+          <div *ngIf="orderDetail.status == '3'">
+            <button id="{{'orderDetail_'+i}}" type="button" class="btn btn-success">Del-{{orderDetail.status}}</button>
+            <!-- <ion-button id="{{'orderDetail_'+i}}" shape="round"
+            color="tertiary">Del-{{orderDetail.status}}</ion-button> -->
+          </div>
+            
+           
+        </div>
+         
+      </ion-row>
+
+
+</ion-grid>
+
+  </ion-item> 
+
+</ion-list>
+ 
+<ion-list>
+<!--------------------------------------try new ------------------------------->
+  <ion-item *ngFor="let product of productList" >
+    <ion-grid class="mycard" [ngClass]="product.availability ? '': 'myItemBgcolor'"  >
+      <ion-row class="ion-row-cls">
+
+        <ion-col size="8" class="plan-left myFontCls" style="padding-left:10px ; top:10px" >
+          <!-- <ion-label> -->
+        
+            <div *ngIf="product?.availability">
+        
+              <div *ngIf="product?.vegId?.vegName == 'veg'">
+                <img src="assets/icon/veg.png" style="width:10%" />
+              </div>
+              <div *ngIf="product?.vegId?.vegName == 'non-veg'">
+                <img src="assets/icon/non-veg.png" style="width:10%" />
+              </div>
+              <div>
+                <div style="float: left;margin-right: 10px;">
+                  <h2>{{product.productName}}</h2>
+                </div>
+                <div style="padding-top: 4px;">
+                  <span (click)="productDetail(product)"><i class="fa-sharp fa-solid fa-circle-info"></i></span>
+                </div>
+              </div>
+        
+              <div>
+                <div style="clear: both;">
+                  <h3 style="font-size: 15px;"><i class="fas fa-inr" aria-hidden="true"></i> {{product.productPrice}}</h3>
+                </div>
+        
+                <div >
+                  <P *ngIf="(product?.quantity ?? 0) > 0 && product?.availability">Total Order :
+                    {{product?.orderDetailList?.length}}
+                  </P>
+                </div>
+              </div>
+        
+            </div>
+        
+        
+            <div *ngIf="!product?.availability">
+              <div>
+                <h2>{{product.productName}}</h2>
+              </div>
+        
+              <div>
+                <h3>Price: {{product.productPrice}}</h3>
+              </div>
+        
+              <div>
+                <P *ngIf="(product?.quantity ?? 0) > 0 && product?.availability">Total Order :
+                  {{product?.orderDetailList?.length}}
+                </P>
+              </div>
+        
+            </div>
+        
+        
+          <!-- </ion-label> -->
+        
+        </ion-col>
+
+        <ion-col size="4">
+          <div style="position: relative;">
+            <div class="myImg">
+              <!-- <ion-avatar> -->
+              <img src="{{imageUrl}}{{product.image}}" class="img_wid">
+              <!-- </ion-avatar> -->
+            </div>
+            <div *ngIf="(product?.quantity ?? 0) > 0 && product?.availability" style="position: absolute;left: 30%;top: 75%;">
+              <i (click)="addProduct(product)" class="fa fa-plus-circle myPlus" aria-hidden="true"></i>
+            </div>
+          </div>
+        </ion-col>
+
+
+        
+
+        <!--<ion-col  size="2" class="plan-left" >
+          
+          <ion-label >
+            <ion-avatar *ngIf="!product.availability" class="availabilityImg" style="padding-top:10px">
+              <img class="img_wid" src="assets/icon/not_available.jpg">
+            </ion-avatar>
+
+        
+
+            <ion-label style="margin-left: 10px;" *ngIf="(product?.quantity ?? 0) > 0 && product?.availability"> 
+              <i (click)="addProduct(product)" class="fa fa-plus-circle myPlus" aria-hidden="true"></i>
+            </ion-label>
+            
+          </ion-label>
+        </ion-col>-->
+
+      </ion-row>
+
+<!------------------------------------Del-0---------------------------------->
+      <ion-row >
+        
+        <div *ngFor="let orderDetail of product.orderDetailList; let i = index">
+          <div *ngIf="orderDetail.status == '0'">
+            <!-- <ion-button id="{{'orderDetail_'+i}}" shape="round" color="primary" (click)="deleteOrder(orderDetail,product)">Del-{{orderDetail.status}}</ion-button> -->
+            <button id="{{'orderDetail_'+i}}" type="button" class="btn btn-primary" (click)="deleteOrder(orderDetail,product)">Del-{{orderDetail.status}}</button>
+          </div>
+
+          <div *ngIf="orderDetail.status == '1'" >
+            <!-- <ion-button id="{{'orderDetail_'+i}}" shape="round" color="secondary">Del-{{orderDetail.status}}</ion-button> -->
+             <button id="{{'orderDetail_'+i}}" type="button" class="btn btn-danger">Del-{{orderDetail.status}}</button>
+          </div>
+
+          <div *ngIf="orderDetail.status == '2'">
+            <!-- <ion-button id="{{'orderDetail_'+i}}" shape="round" color="secondary">Del-{{orderDetail.status}}</ion-button> -->
+             <button id="{{'orderDetail_'+i}}" type="button" class="btn btn-warning">Del-{{orderDetail.status}}</button>
+          </div>
+          <div *ngIf="orderDetail.status == '3'">
+            <button id="{{'orderDetail_'+i}}" type="button" class="btn btn-success">Del-{{orderDetail.status}}</button>
+          
+          </div>
+            
+           
+        </div>
+         
+      </ion-row>
+
+
+</ion-grid>
+
+  </ion-item> 
+
+</ion-list>
+
+</ion-content>

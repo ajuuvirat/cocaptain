@@ -1,0 +1,299 @@
+.img_wid{
+    
+    object-fit: cover;
+    /* float: left; */
+    width: 140px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+.container {
+    padding: 2rem 0rem;
+  }
+  
+  h4 {
+    margin: 2rem 0rem 1rem;
+  }
+  
+  .table-image {
+    td, th {
+      vertical-align: middle;
+    }
+  }
+
+  td {
+    vertical-align: middle;
+}
+
+.add-to-cart1 {
+  width: 100%;
+  background-color: #ffc107;
+  border: none;
+  color: white;
+  padding: 10px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  position: fixed;
+ 
+}
+
+.add-to-cart {
+  width: 76%;
+  bottom: 20px; /* Adjust the value to your preference */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  padding: 10px 20px;
+  background-color: #ffc107; /* Customize your button color */
+  color: #fff; /* Customize the text color */
+  border: none; /* Remove the border */
+  border-radius: 5px; /* Add border radius if needed */
+  cursor: pointer; /* Change cursor to pointer */
+  margin: 18px 0 24px 52px;
+}
+
+.myheading{
+  text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-family: math;
+    font-weight: 700;
+}
+
+.animated-row {
+  animation: fadeInUp 0.5s ease-in-out both;
+}
+
+.card-title {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.img-fluid {
+  border-radius: 15px;
+  width: 100%;
+  // height: auto;
+  max-height: 80px;
+}
+
+.d-flex {
+  display: flex !important;
+}
+
+.align-items-center {
+  align-items: center !important;
+}
+
+
+@keyframes fadeInUp {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.card {
+  opacity: 0; /* Make cards invisible initially */
+  animation: fadeInUp 0.5s ease forwards; /* Apply the fadeInUp animation */
+}
+
+.card:nth-child(1) {
+  animation-delay: 0.1s; /* Delay for the first card */
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.2s; /* Delay for the second card */
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.3s; /* Delay for the third card */
+}
+
+.card:nth-child(4) {
+  animation-delay: 0.4s; /* Delay for the fourth card */
+}
+
+.delivery{
+  position: relative;
+  top: 16px;
+}
+
+// .total-bill{
+//   background-color: #EBF5FB;
+//   margin: 0 20px 0 20px;
+//   border-radius: 10px;
+//   padding: 8px;
+// }
+.total-bill {
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #EBF5FB;
+  max-width: 600px;
+  bottom: 90px;
+  width: 76%;
+  margin: 18px 0 0 50px;
+}
+
+.dish-name{
+font-size: 16px;
+font-weight: 600;
+}
+
+.total-dish-price{
+  font-size: 14px;
+font-weight: 600;
+}
+
+.total-orders{
+  font-size: 14px;
+  font-weight: 400;
+  color: #7B7B7B;
+}
+
+.dish-price{
+  font-size: 14px;
+font-weight: 600;
+}
+
+.total-label {
+  font-weight: 700;
+  font-size: 16px;
+  margin-left: 16px;
+}
+
+.order-summary {
+  color: #7B7B7B;
+  font-size: 14px;
+  margin-left: 16px;
+}
+
+.price {
+  font-size: 22px;
+  font-family: fantasy;
+  margin-right: 10px;
+  color: #333;
+}
+
+.order-now {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  position: relative;
+  top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.no-orders-text {
+  margin-top: 10px; 
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+}
+
+.add-ons{
+  background-color: #94004A;
+  padding: 5px;
+  color: #fff;
+  font-size: 14px;
+  display: flex;
+  margin-left: 32px;
+  border-radius: 4px;
+}
+
+
+
+/* Popup overlay and content styles */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+.popup-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 20;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Style for each extra option with flexbox */
+.extra-option {
+  margin: 10px 0;
+}
+
+.option-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Align checkbox on the left and text on the right */
+.option-label input[type="checkbox"] {
+  margin-right: 10px; /* Space between checkbox and text */
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.bot-output {
+  font-size: 16px;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.cancel-btn {
+  margin-right: 8px;
+  background-color: #F1F1F1;
+  color: black;
+  border: none;
+}
+
+.button-container .send-btn {
+  display: flex;
+  align-items: center;
+  background-color: #94004A;
+  color: #fff;
+  border: none;
+}
+
+
+.voice-messages ul {
+  list-style-type: disc;
+  margin: 0;
+  padding: 0 20px;
+  color: #333;
+}
+
+.voice-messages li {
+  margin-bottom: 5px;
+}
+

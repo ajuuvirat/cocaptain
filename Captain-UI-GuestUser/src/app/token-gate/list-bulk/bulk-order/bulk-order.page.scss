@@ -1,0 +1,16 @@
+.img_wid{
+    object-fit: cover;
+    width: 140px;
+    height: 80px;
+    border-radius: 10px;
+}
+.tab-buttons-container {
+    display: flex;
+    width: 100%; 
+  }
+  
+  ion-tab-button.active {
+    /* Example: custom styling for active tab */
+    color: #94004A;  /* Active color */
+  }
+  
